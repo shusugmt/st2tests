@@ -21,9 +21,6 @@ chain:
         ref: core.local
         params:
             env:
-              ST2_BASE_URL: "{{protocol}}://{{hostname}}"
-              ST2_AUTH_URL: "{{protocol}}://{{hostname}}:9100"
-              ST2_API_URL: "{{protocol}}://{{hostname}}:9101"
               ST2_AUTH_TOKEN: "{{token}}"
             cmd: "st2 trigger get {{trigger_key_create}}"
         on-success: check_if_key_update_trigger_is_registered
@@ -32,9 +29,6 @@ chain:
         ref: core.local
         params:
             env:
-              ST2_BASE_URL: "{{protocol}}://{{hostname}}"
-              ST2_AUTH_URL: "{{protocol}}://{{hostname}}:9100"
-              ST2_API_URL: "{{protocol}}://{{hostname}}:9101"
               ST2_AUTH_TOKEN: "{{token}}"
             cmd: "st2 trigger get {{trigger_key_update}}"
         on-success: check_if_key_change_trigger_is_registered
@@ -43,9 +37,6 @@ chain:
         ref: core.local
         params:
             env:
-              ST2_BASE_URL: "{{protocol}}://{{hostname}}"
-              ST2_AUTH_URL: "{{protocol}}://{{hostname}}:9100"
-              ST2_API_URL: "{{protocol}}://{{hostname}}:9101"
               ST2_AUTH_TOKEN: "{{token}}"
             cmd: "st2 trigger get {{trigger_key_change}}"
         on-success: check_if_key_delete_trigger_is_registered
@@ -54,9 +45,6 @@ chain:
         ref: core.local
         params:
             env:
-              ST2_BASE_URL: "{{protocol}}://{{hostname}}"
-              ST2_AUTH_URL: "{{protocol}}://{{hostname}}:9100"
-              ST2_API_URL: "{{protocol}}://{{hostname}}:9101"
               ST2_AUTH_TOKEN: "{{token}}"
             cmd: "st2 trigger get {{trigger_key_delete}}"
         on-success: create_key
@@ -65,9 +53,6 @@ chain:
         ref: core.local
         params:
             env:
-              ST2_BASE_URL: "{{protocol}}://{{hostname}}"
-              ST2_AUTH_URL: "{{protocol}}://{{hostname}}:9100"
-              ST2_API_URL: "{{protocol}}://{{hostname}}:9101"
               ST2_AUTH_TOKEN: "{{token}}"
             cmd: "st2 key set a b"
         on-success: check_key_create_trigger_instance
@@ -76,9 +61,6 @@ chain:
         ref: core.local
         params:
             env:
-              ST2_BASE_URL: "{{protocol}}://{{hostname}}"
-              ST2_AUTH_URL: "{{protocol}}://{{hostname}}:9100"
-              ST2_API_URL: "{{protocol}}://{{hostname}}:9101"
               ST2_AUTH_TOKEN: "{{token}}"
             cmd: "st2 trigger-instance list --trigger {{trigger_key_create}} -n 1 -n 1 -j | grep  -m 1 id | awk '{print $2}' | tr -d '\",'"
         on-success: retrieve_key_create_trigger_instance
@@ -87,9 +69,6 @@ chain:
         ref: core.local
         params:
             env:
-              ST2_BASE_URL: "{{protocol}}://{{hostname}}"
-              ST2_AUTH_URL: "{{protocol}}://{{hostname}}:9100"
-              ST2_API_URL: "{{protocol}}://{{hostname}}:9101"
               ST2_AUTH_TOKEN: "{{token}}"
             cmd: "st2 trigger-instance get {{check_key_create_trigger_instance.stdout | replace('\n', '')}} -j"
         on-success: assert_trigger_instance_payload_matches_expected_create
@@ -112,9 +91,6 @@ chain:
         ref: core.local
         params:
             env:
-              ST2_BASE_URL: "{{protocol}}://{{hostname}}"
-              ST2_AUTH_URL: "{{protocol}}://{{hostname}}:9100"
-              ST2_API_URL: "{{protocol}}://{{hostname}}:9101"
               ST2_AUTH_TOKEN: "{{token}}"
             cmd: "st2 key set a c"
         on-success: check_key_change_trigger_instance
@@ -123,9 +99,6 @@ chain:
         ref: core.local
         params:
             env:
-              ST2_BASE_URL: "{{protocol}}://{{hostname}}"
-              ST2_AUTH_URL: "{{protocol}}://{{hostname}}:9100"
-              ST2_API_URL: "{{protocol}}://{{hostname}}:9101"
               ST2_AUTH_TOKEN: "{{token}}"
             cmd: "st2 trigger-instance list --trigger {{trigger_key_change}} -n 1 -n 1 -j | grep  -m 1 id | awk '{print $2}' | tr -d '\",'"
         on-success: retrieve_key_change_trigger_instance
@@ -134,9 +107,6 @@ chain:
         ref: core.local
         params:
             env:
-              ST2_BASE_URL: "{{protocol}}://{{hostname}}"
-              ST2_AUTH_URL: "{{protocol}}://{{hostname}}:9100"
-              ST2_API_URL: "{{protocol}}://{{hostname}}:9101"
               ST2_AUTH_TOKEN: "{{token}}"
             cmd: "st2 trigger-instance get {{check_key_change_trigger_instance.stdout | replace('\n', '')}} -j"
         on-success: assert_trigger_instance_payload_matches_expected_change
@@ -166,9 +136,6 @@ chain:
         ref: core.local
         params:
             env:
-              ST2_BASE_URL: "{{protocol}}://{{hostname}}"
-              ST2_AUTH_URL: "{{protocol}}://{{hostname}}:9100"
-              ST2_API_URL: "{{protocol}}://{{hostname}}:9101"
               ST2_AUTH_TOKEN: "{{token}}"
             cmd: "st2 trigger-instance list --trigger {{trigger_key_update}} -n 1 -n 1 -j | grep  -m 1 id | awk '{print $2}' | tr -d '\",'"
         on-success: retrieve_key_update_trigger_instance
@@ -177,9 +144,6 @@ chain:
         ref: core.local
         params:
             env:
-              ST2_BASE_URL: "{{protocol}}://{{hostname}}"
-              ST2_AUTH_URL: "{{protocol}}://{{hostname}}:9100"
-              ST2_API_URL: "{{protocol}}://{{hostname}}:9101"
               ST2_AUTH_TOKEN: "{{token}}"
             cmd: "st2 trigger-instance get {{check_key_update_trigger_instance.stdout | replace('\n', '')}} -j"
         on-success: assert_trigger_instance_payload_matches_expected_update
@@ -202,9 +166,6 @@ chain:
         ref: core.local
         params:
             env:
-              ST2_BASE_URL: "{{protocol}}://{{hostname}}"
-              ST2_AUTH_URL: "{{protocol}}://{{hostname}}:9100"
-              ST2_API_URL: "{{protocol}}://{{hostname}}:9101"
               ST2_AUTH_TOKEN: "{{token}}"
             cmd: "st2 key delete a"
         on-success: check_key_delete_trigger_instance
@@ -213,9 +174,6 @@ chain:
         ref: core.local
         params:
             env:
-              ST2_BASE_URL: "{{protocol}}://{{hostname}}"
-              ST2_AUTH_URL: "{{protocol}}://{{hostname}}:9100"
-              ST2_API_URL: "{{protocol}}://{{hostname}}:9101"
               ST2_AUTH_TOKEN: "{{token}}"
             cmd: "st2 trigger-instance list --trigger {{trigger_key_delete}} -n 1 -n 1 -j | grep  -m 1 id | awk '{print $2}' | tr -d '\",'"
         on-success: retrieve_key_delete_trigger_instance
@@ -224,9 +182,6 @@ chain:
         ref: core.local
         params:
             env:
-              ST2_BASE_URL: "{{protocol}}://{{hostname}}"
-              ST2_AUTH_URL: "{{protocol}}://{{hostname}}:9100"
-              ST2_API_URL: "{{protocol}}://{{hostname}}:9101"
               ST2_AUTH_TOKEN: "{{token}}"
             cmd: "st2 trigger-instance get {{check_key_delete_trigger_instance.stdout | replace('\n', '')}} -j"
         on-success: assert_trigger_instance_payload_matches_expected_delete

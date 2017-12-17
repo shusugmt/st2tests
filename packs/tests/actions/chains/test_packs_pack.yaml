@@ -14,9 +14,6 @@ chain:
         ref: core.local
         params:
             env:
-              ST2_BASE_URL: "{{protocol}}://{{hostname}}"
-              ST2_AUTH_URL: "{{protocol}}://{{hostname}}:9100"
-              ST2_API_URL: "{{protocol}}://{{hostname}}:9101"
               ST2_AUTH_TOKEN: "{{token}}"
             cmd: "st2 action list --pack {{ pack_to_install_1 }} | grep 'No matching items found'"
             timeout: "{{test_timeout}}"
@@ -27,9 +24,6 @@ chain:
         ref: core.local
         params:
             env:
-              ST2_BASE_URL: "{{protocol}}://{{hostname}}"
-              ST2_AUTH_URL: "{{protocol}}://{{hostname}}:9100"
-              ST2_API_URL: "{{protocol}}://{{hostname}}:9101"
               ST2_AUTH_TOKEN: "{{token}}"
             cmd: "st2 pack remove {{ pack_to_install_1 }}"
             timeout: "{{test_timeout}}"
@@ -40,9 +34,6 @@ chain:
         ref: core.local
         params:
             env:
-              ST2_BASE_URL: "{{protocol}}://{{hostname}}"
-              ST2_AUTH_URL: "{{protocol}}://{{hostname}}:9100"
-              ST2_API_URL: "{{protocol}}://{{hostname}}:9101"
               ST2_AUTH_TOKEN: "{{token}}"
             cmd: "st2 action list --pack {{ pack_to_install_2 }} | grep 'No matching items found'"
             timeout: "{{test_timeout}}"
@@ -53,9 +44,6 @@ chain:
         ref: core.local
         params:
             env:
-              ST2_BASE_URL: "{{protocol}}://{{hostname}}"
-              ST2_AUTH_URL: "{{protocol}}://{{hostname}}:9100"
-              ST2_API_URL: "{{protocol}}://{{hostname}}:9101"
               ST2_AUTH_TOKEN: "{{token}}"
             cmd: "st2 pack remove {{ pack_to_install_2 }}"
             timeout: "{{test_timeout}}"
@@ -66,9 +54,6 @@ chain:
         ref: core.local
         params:
             env:
-              ST2_BASE_URL: "{{protocol}}://{{hostname}}"
-              ST2_AUTH_URL: "{{protocol}}://{{hostname}}:9100"
-              ST2_API_URL: "{{protocol}}://{{hostname}}:9101"
               ST2_AUTH_TOKEN: "{{token}}"
             cmd: "st2 pack install {{ pack_to_install_1 }} {{ pack_to_install_2 }}"
             timeout: "{{test_timeout}}"
@@ -79,9 +64,6 @@ chain:
         ref: core.local
         params:
             env:
-              ST2_BASE_URL: "{{protocol}}://{{hostname}}"
-              ST2_AUTH_URL: "{{protocol}}://{{hostname}}:9100"
-              ST2_API_URL: "{{protocol}}://{{hostname}}:9101"
               ST2_AUTH_TOKEN: "{{token}}"
             cmd: "st2 action list -j --pack {{ pack_to_install_1 }} | grep '{{ pack_to_install_1 }}'"
             timeout: "{{test_timeout}}"
@@ -92,9 +74,6 @@ chain:
         ref: core.local
         params:
             env:
-              ST2_BASE_URL: "{{protocol}}://{{hostname}}"
-              ST2_AUTH_URL: "{{protocol}}://{{hostname}}:9100"
-              ST2_API_URL: "{{protocol}}://{{hostname}}:9101"
               ST2_AUTH_TOKEN: "{{token}}"
             cmd: "st2 action list -j --pack {{ pack_to_install_2 }} | grep '{{ pack_to_install_2 }}'"
             timeout: "{{test_timeout}}"
@@ -105,9 +84,6 @@ chain:
         ref: core.local
         params:
             env:
-              ST2_BASE_URL: "{{protocol}}://{{hostname}}"
-              ST2_AUTH_URL: "{{protocol}}://{{hostname}}:9100"
-              ST2_API_URL: "{{protocol}}://{{hostname}}:9101"
               ST2_AUTH_TOKEN: "{{token}}"
             cmd: "st2 pack remove {{ pack_to_install_1 }} {{ pack_to_install_2 }}"
             timeout: "{{test_timeout}}"
@@ -118,9 +94,6 @@ chain:
         ref: core.local
         params:
             env:
-              ST2_BASE_URL: "{{protocol}}://{{hostname}}"
-              ST2_AUTH_URL: "{{protocol}}://{{hostname}}:9100"
-              ST2_API_URL: "{{protocol}}://{{hostname}}:9101"
               ST2_AUTH_TOKEN: "{{token}}"
             cmd: "st2 action list --pack {{ pack_to_install_1 }} | grep 'No matching items found'"
             timeout: "{{test_timeout}}"
@@ -131,9 +104,6 @@ chain:
         ref: core.local
         params:
             env:
-              ST2_BASE_URL: "{{protocol}}://{{hostname}}"
-              ST2_AUTH_URL: "{{protocol}}://{{hostname}}:9100"
-              ST2_API_URL: "{{protocol}}://{{hostname}}:9101"
               ST2_AUTH_TOKEN: "{{token}}"
             cmd: "st2 action list --pack {{ pack_to_install_2 }} | grep 'No matching items found'"
             timeout: "{{test_timeout}}"
@@ -144,9 +114,6 @@ chain:
         ref: core.local
         params:
             env:
-              ST2_BASE_URL: "{{protocol}}://{{hostname}}"
-              ST2_AUTH_URL: "{{protocol}}://{{hostname}}:9100"
-              ST2_API_URL: "{{protocol}}://{{hostname}}:9101"
               ST2_AUTH_TOKEN: "{{token}}"
             # triggers, sensors, actions, rules, aliases, policy types, policies, configs -> 9
             # 9 post pluggable runners
@@ -159,9 +126,6 @@ chain:
         ref: core.local
         params:
             env:
-              ST2_BASE_URL: "{{protocol}}://{{hostname}}"
-              ST2_AUTH_URL: "{{protocol}}://{{hostname}}:9100"
-              ST2_API_URL: "{{protocol}}://{{hostname}}:9101"
               ST2_AUTH_TOKEN: "{{token}}"
             cmd: "st2 pack install {{ pack_to_install_with_no_config }}"
             timeout: "{{test_timeout}}"
@@ -172,9 +136,6 @@ chain:
         ref: core.local
         params:
             env:
-              ST2_BASE_URL: "{{protocol}}://{{hostname}}"
-              ST2_AUTH_URL: "{{protocol}}://{{hostname}}:9100"
-              ST2_API_URL: "{{protocol}}://{{hostname}}:9101"
               ST2_AUTH_TOKEN: "{{token}}"
             cmd: "st2 pack install {{ pack_to_install_with_no_config }}"
             timeout: "{{test_timeout}}"
@@ -186,9 +147,6 @@ chain:
         ref: core.local
         params:
             env:
-              ST2_BASE_URL: "{{protocol}}://{{hostname}}"
-              ST2_AUTH_URL: "{{protocol}}://{{hostname}}:9100"
-              ST2_API_URL: "{{protocol}}://{{hostname}}:9101"
               ST2_AUTH_TOKEN: "{{token}}"
             cmd: "st2 pack install {{ pack_to_install_non_master_default_branch }}"
             timeout: "{{test_timeout}}"
@@ -199,9 +157,6 @@ chain:
         ref: core.local
         params:
             env:
-              ST2_BASE_URL: "{{protocol}}://{{hostname}}"
-              ST2_AUTH_URL: "{{protocol}}://{{hostname}}:9100"
-              ST2_API_URL: "{{protocol}}://{{hostname}}:9101"
               ST2_AUTH_TOKEN: "{{token}}"
             cmd: "echo packs pack test succeed; exit 0"
     -
@@ -210,8 +165,5 @@ chain:
         ref: "core.local"
         params:
             env:
-              ST2_BASE_URL: "{{protocol}}://{{hostname}}"
-              ST2_AUTH_URL: "{{protocol}}://{{hostname}}:9100"
-              ST2_API_URL: "{{protocol}}://{{hostname}}:9101"
               ST2_AUTH_TOKEN: "{{token}}"
             cmd: "echo packs pack test failed; exit 1"
